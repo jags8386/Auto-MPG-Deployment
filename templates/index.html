@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html >
+ <head>
+	<meta charset="UTF-8">
+	<title>ML API</title>
+	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='styles.css') }}" media="screen, projection">
+  
+</head>
+<body>
+  <div class="login">
+	<h1> Automobile MPG prediction </h1>
+  
+  
+    <form action="{{ url_for('predict')}}"method="post">
+		<label for="cyl">Number of Cylinders :</label>
+		<select id="cyl" name="cylinders">
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="8">8</option>
+		</select><br>
+		<label for="disp">Displacement</label>
+	    <input type="text" id="disp" name="displacement" placeholder='Enter Cyl Displacement'><br>
+	    <label for="hp">Horsepower</label>
+	    <input type="text" id="hp" name="horsepower" placeholder='Enter Cyl Horsepower'><br>
+	    <label for="wt">Weight</label>
+	    <input type="text" id="wt" name="weight" placeholder='Enter car weight in lbs'><br>
+	    <label for="acc">Acceleration</label>
+	    <input type="text" id="acc" name="acceleration" placeholder='Enter Car Acceleration'><br>
+		<label for="yr">Car Model Year</label>  
+		<select name="model-year">
+			<option value="1982">1982</option>
+			<option value="1981">1981</option>
+			<option value="1980">1980</option>
+			<option value="1979">1979</option>
+			<option value="1978">1978</option>
+			<option value="1977">1977</option>
+			<option value="1976">1976</option>
+			<option value="1975">1975</option>
+			<option value="1974">1974</option>
+			<option value="1973">1973</option>
+			<option value="1972">1972</option>
+			<option value="1971">1971</option>
+			<option value="1970">1970</option>
+		</select><br>
+		<label for="orig">Origin Country</label>  
+		<select name="origin">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select> <br>
+     
+
+		<button type="submit" class="btn btn-primary btn-block btn-large"> Predict </button>
+	</form>  
+    
+
+  
+  <br>
+  <br>
+   {{ prediction_text }}
+  
+ </div>
+
+</body>
+</html>
